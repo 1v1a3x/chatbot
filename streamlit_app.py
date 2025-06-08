@@ -16,7 +16,7 @@ index_source_fields = {
         "content"
     ]
 }
-def get_elasticsearch_results():
+def get_elasticsearch_results(query):
     es_query = {
         "retriever": {
             "standard": {
@@ -80,7 +80,7 @@ def generate_openai_completion(user_prompt, question):
     return response.choices[0].message.content
 if __name__ == "__main__":
     question = "my question"
-    elasticsearch_results = get_elasticsearch_results()
+    elasticsearch_results = get_elasticsearch_results(question)
     context_prompt = create_openai_prompt(elasticsearch_results)
     openai_completion = generate_openai_completion(context_prompt, question)
     print(openai_completion)
