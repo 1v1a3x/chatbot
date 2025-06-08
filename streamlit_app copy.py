@@ -4,15 +4,12 @@ import os
 from elasticsearch import Elasticsearch
 from openai import OpenAI
 es_client = Elasticsearch(
-    "https://b85c-176-76-226-102.ngrok-free.app",
-    # api_key=os.environ["ES_API_KEY"]
-    api_key="aUtIYVVKY0JEY0txVVdocTRJVEQ6V1N5bVIxZE1hUjhNaGtRT25HRHJ6Zw=="
-    # https://b85c-176-76-226-102.ngrok-free.app
+    "http://localhost:9200",
+    api_key=os.environ["ES_API_KEY"]
 )
       
 openai_client = OpenAI(
-    # api_key=os.environ["OPENAI_API_KEY"],
-    api_key="1",
+    api_key=os.environ["OPENAI_API_KEY"],
 )
 index_source_fields = {
     "ttintegration": [
