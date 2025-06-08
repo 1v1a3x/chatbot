@@ -10,7 +10,6 @@ es_client = Elasticsearch(
       
 openai_client = OpenAI(
     api_key=os.environ["OPENAI_API_KEY"],
-    # api_key="1",
 )
 index_source_fields = {
     "ttintegration": [
