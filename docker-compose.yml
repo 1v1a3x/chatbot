@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  chatbot:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - ENVIRONMENT=production
+    volumes:
+      - ./logs:/app/logs
+    command: ask "What is machine learning?"
+    
+  chatbot-dev:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=true
+    volumes:
+      - ./src:/app/src
+      - ./logs:/app/logs
+    command: interactive
+    stdin_open: true
+    tty: true
